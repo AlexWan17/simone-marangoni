@@ -16,17 +16,16 @@ body {
     justify-content: center;
     align-items: center;
     overflow-x: hidden;
-    /* O Céu Azul Profundo Luxuoso e Iluminado no Centro */
+    /* O Céu Azul Profundo Iluminado */
     background: radial-gradient(circle at center, #0a2240 0%, #051326 50%, #020710 100%);
     color: white;
     padding: 16px;
-    perspective: 1000px; /* Necessário para o efeito 3D do giroscópio */
+    perspective: 1000px; /* Cria o ambiente para o efeito 3D */
 }
 
 .background {
     position: fixed;
     inset: 0;
-    /* Sutil textura de pixels/brilho simulando estúdio */
     background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.04), transparent 50%);
     z-index: -1;
 }
@@ -37,12 +36,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease-out; /* Suaviza o movimento do celular */
 }
 
 /* ==========================================================================
-   O CARTÃO (AGORA PROPORCIONAL E IMERSIVO)
+   O CARTÃO (RESPONDE AO GIROSCÓPIO ISOLADAMENTE)
    ========================================================================== */
 .card {
     background: linear-gradient(135deg, #0b1d33 0%, #061224 100%);
@@ -54,8 +51,11 @@ body {
     box-shadow: 
         0 25px 50px rgba(0, 0, 0, 0.5),
         inset 0 1px 0px rgba(255, 255, 255, 0.1);
+    
+    /* Configuração para receber o movimento do JS de forma suave */
     transform-style: preserve-3d;
     backface-visibility: hidden;
+    transition: transform 0.1s ease-out;
 }
 
 .logo-area {
@@ -64,7 +64,6 @@ body {
     margin-bottom: 25px;
 }
 
-/* Correção drástica do tamanho e proporção do Logo */
 .justice-logo {
     width: 100%;
     max-width: 180px;
@@ -90,11 +89,10 @@ body {
     font-weight: 500;
     letter-spacing: 7px;
     text-transform: uppercase;
-    color: #d7b17a; /* Dourado sutil clássico da advocacia */
+    color: #d7b17a; /* Clássico Tom de Ouro da Advocacia */
     margin-bottom: 30px;
 }
 
-/* Linhas Prateadas corrigidas (sem sumir nas pontas de forma opaca) */
 .silver-lines {
     display: flex;
     flex-direction: column;
@@ -146,7 +144,7 @@ body {
 }
 
 /* ==========================================================================
-   BOTÕES METÁLICOS TÁTEIS REFINADOS
+   BOTÕES METÁLICOS TÁTEIS (ESTÁTICOS / CLIQUES PERFEITOS)
    ========================================================================== */
 .buttons-container {
     display: flex;
@@ -170,7 +168,7 @@ body {
     border: none;
     cursor: pointer;
     color: #071321;
-    /* Metal escovado horizontal realista */
+    /* Efeito realista de metal escovado */
     background: linear-gradient(90deg, #e0e0e0 0%, #ffffff 50%, #d6d6d6 100%);
     box-shadow: 
         0 8px 20px rgba(0, 0, 0, 0.4),
